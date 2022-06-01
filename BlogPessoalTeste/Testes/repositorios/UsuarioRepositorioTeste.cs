@@ -30,8 +30,8 @@ namespace BlogPessoalTest.Testes.repositorios
             //GIVEN - Dado que registro 4 usuarios no banco
             await _repositorio.NovoUsuarioAsync(new Usuario
             {
-                Nome = "Gustavo Boaz",
-                Email = "gustavo@email.com",
+                Nome = "Julio Conceição",
+                Email = "julio@email.com",
                 Senha = "134652",
                 Foto = "URLFOTO",
                 Tipo = TipoUsuario.NORMAL

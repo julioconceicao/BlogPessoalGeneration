@@ -34,8 +34,8 @@ namespace BlogPessoalTeste.Testes.repositorios
             // GIVEN - Dado que registro 2 usuarios
             await _repositorioU.NovoUsuarioAsync(new Usuario
             {
-                Nome = "Gustavo Boaz",
-                Email = "gustavo@email.com",
+                Nome = "Julio Conceição",
+                Email = "julio@email.com",
                 Senha = "134652",
                 Foto = "URLFOTO",
                 Tipo = TipoUsuario.NORMAL
@@ -105,8 +105,8 @@ namespace BlogPessoalTeste.Testes.repositorios
             // GIVEN - Dado que registro 1 usuarios
             await _repositorioU.NovoUsuarioAsync(new Usuario
             {
-                Nome = "Gustavo Boaz",
-                Email = "gustavo@email.com",
+                Nome = "Julio Conceição",
+                Email = "julio@email.com",
                 Senha = "134652",
                 Foto = "URLFOTO",
                 Tipo = TipoUsuario.NORMAL
@@ -161,8 +161,8 @@ namespace BlogPessoalTeste.Testes.repositorios
             // GIVEN - Dado que registro 2 usuarios
             await _repositorioU.NovoUsuarioAsync(new Usuario
             {
-                Nome = "Gustavo Boaz",
-                Email = "gustavo@email.com",
+                Nome = "Julio Conceição",
+                Email = "julio@email.com",
                 Senha = "134652",
                 Foto = "URLFOTO",
                 Tipo = TipoUsuario.NORMAL

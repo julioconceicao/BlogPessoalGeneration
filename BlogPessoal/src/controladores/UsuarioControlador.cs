@@ -118,8 +118,8 @@ namespace BlogPessoal.src.controladores
         ///
         ///     POST /api/Usuarios/cadastrar
         ///     {
-        ///        "nome": "Gustavo Boaz",
-        ///        "email": "gustavo@domain.com",
+        ///        "nome": "Julio César",
+        ///        "email": "julio@domain.com",
         ///        "senha": "134652",
         ///        "foto": "URLFOTO",
         ///        "tipo": "NORMAL"
@@ -154,7 +154,7 @@ namespace BlogPessoal.src.controladores
         ///     PUT /api/Usuarios
         ///     {
         ///        "id": 1,    
-        ///        "nome": "Gustavo Boaz",
+        ///        "nome": "Julio César",
         ///        "senha": "134652",
         ///        "foto": "URLFOTO",
         ///        "tipo": "ADMINISTRADOR"
@@ -190,7 +190,7 @@ namespace BlogPessoal.src.controladores
         ///
         ///     POST /api/Usuarios/logar
         ///     {
-        ///        "email": "gustavo@domain.com",
+        ///        "email": "julio@domain.com",
         ///        "senha": "134652"
         ///     }
         ///

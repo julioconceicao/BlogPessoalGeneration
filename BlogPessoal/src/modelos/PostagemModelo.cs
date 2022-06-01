@@ -5,7 +5,7 @@ namespace BlogPessoal.src.modelos
 {
     /// <summary>
     /// <para>Resumo: Classe responsavel por representar tb_postagens no banco.</para>
-    /// <para>Criado por: Gustavo Boaz</para>
+    /// <para>Criado por: Julio Conceição</para>
     /// <para>Versão: 1.0</para>
     /// <para>Data: 12/05/2022</para>
     /// </summary>

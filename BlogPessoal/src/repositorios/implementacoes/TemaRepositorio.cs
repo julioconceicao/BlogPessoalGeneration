@@ -10,7 +10,7 @@ namespace BlogPessoal.src.repositorios.implementacoes
 {
     /// <summary>
     /// <para>Resumo: Classe responsavel por implementar ITema</para>
-    /// <para>Criado por: Gustavo Boaz</para>
+    /// <para>Criado por: Julio Conceição</para>
     /// <para>Versão: 1.0</para>
     /// <para>Data: 12/05/2022</para>
     /// </summary>

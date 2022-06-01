@@ -5,7 +5,7 @@ namespace BlogPessoal.src.contextos
 {
     /// <summary>
     /// <para>Resumo: Classe contexto, responsavel por carregar contexto e definir DbSets</para>
-    /// <para>Criado por: Gustavo Boaz</para>
+    /// <para>Criado por: Julio César</para>
     /// <para>Versão: 1.0</para>
     /// <para>Data: 12/05/2022</para>
     /// </summary>

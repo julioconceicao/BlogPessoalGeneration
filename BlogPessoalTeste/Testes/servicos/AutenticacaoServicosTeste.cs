@@ -36,8 +36,8 @@ namespace BlogPessoalTeste.Testes.servicos
             //GIVEN - Dado que registro um usuario no banco
             await _repositorio.NovoUsuarioAsync(new Usuario
             {
-                Nome = "Gustavo Boaz",
-                Email = "gustavo@email.com",
+                Nome = "Julio Conceição",
+                Email = "julio@email.com",
                 Senha = "134652",
                 Foto = "URLFOTO",
                 Tipo = TipoUsuario.NORMAL
@@ -47,8 +47,8 @@ namespace BlogPessoalTeste.Testes.servicos
             await Assert.ThrowsExceptionAsync<Exception>( async () =>{
                 await _servicos.CriarUsuarioSemDuplicarAsync(new Usuario
                 {
-                    Nome = "Gustavo Boaz",
-                    Email = "gustavo@email.com",
+                    Nome = "Julio Conceição",
+                    Email = "julio@email.com",
                     Senha = "134652",
                     Foto = "URLFOTO",
                     Tipo = TipoUsuario.NORMAL
