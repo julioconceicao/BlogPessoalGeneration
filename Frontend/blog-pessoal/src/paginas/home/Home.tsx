@@ -48,58 +48,68 @@ function Home() {
 
           <Grid xs={12} className='postagens'>
           </Grid>
-        </Grid>
-        <Grid container direction="row" justifyContent="center" alignItems="center">
-          
-          <Box className="maincontainer">
 
-            <Box id="card1" className="card">
+          <Grid container direction="row" justifyContent="center" alignItems="center">
 
-              <Box className="front">
-              <Typography>Objetivos/Referencias/Metas/Oportunidades</Typography>
+            {/* CARDS ANIMADOS */}
+            <Box className="maincontainer">
+
+              <Box id="card1" className="card">
+
+                <Box className="front">
+                  <Typography>Objetivos</Typography>
+                </Box>
+
+                <Box className="back">
+                  <Typography>Descrição</Typography>
+                </Box>
+
               </Box>
-
-              <Box className="back">
-              <Typography>Descrição</Typography>
-              </Box>
-
             </Box>
-          </Box>
 
-          <Box className="maincontainer">
+            <Box className="maincontainer">
 
-            <Box id="card2" className="card">
+              <Box id="card2" className="card">
 
-              <Box className="front">
-              <Typography>Objetivos/Referencias/Metas/Oportunidades</Typography>
+                <Box className="front">
+                  <Typography>Objetivos</Typography>
+                </Box>
+
+                <Box className="back" alignItems={"center"}>
+                  <h5>O projeto reúne:</h5>
+                  <ul>
+                    <li>
+                      Network
+                    </li>
+                  </ul>
+                  <Typography>O projeto reúne:</Typography>
+                  <Typography>Networking</Typography>
+                  <Typography>O projeto reúne:</Typography>
+                </Box>
+
               </Box>
-
-              <Box className="back">
-              <Typography>Descrição</Typography>
-              </Box>
-
             </Box>
-          </Box>
 
-          <Box className="maincontainer">
+            <Box className="maincontainer">
 
-            <Box id="card3" className="card">
+              <Box id="card3" className="card">
 
-              <Box className="front">
-              <Typography>Objetivos/Referências/Metas/Oportunidades</Typography>
+                <Box className="front">
+                  <Typography>Objetivos/Referências/Metas/Oportunidades</Typography>
+                </Box>
+
+                <Box className="back">
+                  <Typography>Descrição</Typography>
+                </Box>
+
               </Box>
-
-              <Box className="back">
-              <Typography>Descrição</Typography>
-              </Box>
-
             </Box>
-          </Box>
+          </Grid>
         </Grid>
       </Grid>
-
     </>
   );
 }
+
 
 export default Home;
