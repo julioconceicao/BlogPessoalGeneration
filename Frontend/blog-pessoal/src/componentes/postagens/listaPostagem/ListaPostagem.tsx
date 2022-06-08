@@ -8,10 +8,6 @@ function ListaPostagem() {
 
   return (
     <>
-      <Grid item xs={12} style={{
-        background: `url(https://cdn.discordapp.com/attachments/966117479455809540/982107522745892935/wes-hicks-MEL-jJnm7RQ-unsplash.jpg)`,
-        backgroundRepeat: 'no-repeat', width: '100%', height: '100vh', backgroundSize: '100%',
-      }}>
         <Box m={2} >
           <Card variant="outlined">
             <CardContent>
@@ -49,7 +45,7 @@ function ListaPostagem() {
             </CardActions>
           </Card>
         </Box>
-      </Grid>
+     
     </>)
 }
 
