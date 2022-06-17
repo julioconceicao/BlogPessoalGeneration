@@ -1,17 +1,17 @@
-import React, { useState, useEffect, ChangeEvent } from 'react'
-import { Container, Typography, TextField, Button } from "@material-ui/core"
+import React, {useState, useEffect, ChangeEvent} from 'react';
+import { Container, Typography, TextField, Button } from "@material-ui/core";
+import {useNavigate, useParams } from 'react-router-dom';
+import './CadastroTema.css';
 import Tema from '../../../modelos/Tema';
 import { buscaId, post, put } from '../../../servicos/Servicos';
-import { useNavigate, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 
 function CadastroTema() {
-
     let navigate = useNavigate();
-    const { id } = useParams<{ id: string }>();
+    const { id } = useParams<{id: string}>();
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
       );
@@ -21,60 +21,91 @@ function CadastroTema() {
     })
 
     useEffect(() => {
-        if (token === "") {
-            alert("Você precisa estar logado.")
-            navigate("/login")
-
+        if (token == "") {
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+                });
+            history.push("/login")
+    
         }
     }, [token])
 
-    useEffect(() => {
-        if (id !== undefined) {
+    useEffect(() =>{
+        if(id !== undefined){
             findById(id)
         }
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/api/Temas/id/${id}`, setTema, {
+        buscaId(`/tema/${id}`, setTema, {
             headers: {
-                'Authorization': token
+              'Authorization': token
             }
-        })
-    }
-
-    function updatedTema(e: ChangeEvent<HTMLInputElement>) {
-        setTema({
-            ...tema,
-            [e.target.name]: e.target.value,
-        })
-    }
-
-    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
-        e.preventDefault()
-        console.log("tema " + JSON.stringify(tema))
-
-        if (id !== undefined) {
-            put(`/api/Temas`, tema, setTema, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-            alert('Tema atualizado com sucesso.');
-        } else {
-            post(`/api/Temas`, tema, setTema, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-            alert('Tema cadastrado com sucesso.');
+          })
         }
-        back()
-    }
 
-    function back() {
-        navigate('/temas')
-    }
+        function updatedTema(e: ChangeEvent<HTMLInputElement>) {
 
+            setTema({
+                ...tema,
+                [e.target.name]: e.target.value,
+            })
+    
+        }
+        
+        async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+            e.preventDefault()
+            console.log("tema " + JSON.stringify(tema))
+    
+            if (id !== undefined) {
+                console.log(tema)
+                put(`/tema`, tema, setTema, {
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                toast.success('Tema atualizado com sucesso', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                    });
+            } else {
+                post(`/tema`, tema, setTema, {
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                toast.success('Tema cadastrado com sucesso', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                    });
+            }
+            back()
+    
+        }
+    
+        function back() {
+            navigate('/temas')
+        }
+  
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
