@@ -1,115 +1,62 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import { Typography, Grid, Button } from '@material-ui/core';
-import { Box } from "@mui/material";
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import "./Home.css";
+import { Box } from '@mui/material';
+import './Home.css';
+import TabPostagem from '../../componentes/postagens/tabPostagem/TabPostagem';
+import ModalPostagem from "../../componentes/postagens/modalPostagem/ModalPostagem";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function Home() {
-  return (
-    <>
-      {/* Background */}
-      <Grid item xs={12} style={{
-        background: `url(https://cdn.discordapp.com/attachments/966117479455809540/982107427149348906/marius-masalar-rPOmLGwai2w-unsplash.jpg)`,
-        backgroundRepeat: 'no-repeat', width: '100%', height: '100vh', backgroundSize: 'cover',
-      }}>
+    let navigate = useNavigate();
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
 
-        {/* Navbar */}
-        <Box className="navbarmenu">
-          <IconButton edge="start" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6">
-            MENU
-          </Typography>
-          <Box className="navbarbutton">
-            <Link to='/Login'>
-              <button className="nav-button"> Login</button>
-            </Link>
-            <Link to='/Cadastro'>
-              <button className="nav-button">Cadastre-se</button>
-            </Link>
-          </Box>
-        </Box>
-        {/* Home */}
-        <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
-          <Grid alignItems="center" item xs={12}>
-            <Box paddingX={20} >
-              <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" id="titulo1">Bem vindo(a)!</Typography>
-              <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" id="titulo2">Está pronto para levar seu networking a um novo nível?</Typography>
-            </Box>
-            <Box display="flex" justifyContent="center">
-              <Box marginRight={1}>
-              </Box>
-              <Button variant="outlined" id='botao'>Explorar a comunidade</Button>
-            </Box>
-          </Grid>
+    useEffect(() => {
+        if (token === null) {
+            toast.error('Você precisa estar logado para acessar esta página!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: 'colored',
+                progress: undefined
+            });
+            navigate('/login');
+        }
 
-          <Grid xs={12} className='postagens'>
-          </Grid>
-
-          <Grid container direction="row" justifyContent="center" alignItems="center">
-
-            {/* CARDS ANIMADOS */}
-            <Box className="maincontainer">
-
-              <Box id="card1" className="card">
-
-                <Box className="front">
-                  <Typography>Objetivos</Typography>
-                </Box>
-
-                <Box className="back">
-                  <Typography>Descrição</Typography>
-                </Box>
-
-              </Box>
-            </Box>
-
-            <Box className="maincontainer">
-
-              <Box id="card2" className="card">
-
-                <Box className="front">
-                  <Typography>Objetivos</Typography>
-                </Box>
-
-                <Box className="back" alignItems={"center"}>
-                  <h5>O projeto reúne:</h5>
-                  <ul>
-                    <li>
-                      Network
-                    </li>
-                  </ul>
-                  <Typography>O projeto reúne:</Typography>
-                  <Typography>Networking</Typography>
-                  <Typography>O projeto reúne:</Typography>
-                </Box>
-
-              </Box>
-            </Box>
-
-            <Box className="maincontainer">
-
-              <Box id="card3" className="card">
-
-                <Box className="front">
-                  <Typography>Objetivos/Referências/Metas/Oportunidades</Typography>
-                </Box>
-
-                <Box className="back">
-                  <Typography>Descrição</Typography>
-                </Box>
-
-              </Box>
-            </Box>
-          </Grid>
-        </Grid>
-      </Grid>
-    </>
-  );
+    }, [token]);
+    return (
+        <>
+            <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
+                <Grid alignItems="center" item xs={6}>
+                    <Box paddingX={20} >
+                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo'>Seja bem vindo(a)!</Typography>
+                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='titulo'>Leve seu network a um novo nível!</Typography>
+                    </Box>
+                    <Box display="flex" justifyContent="center">
+                        <Box marginRight={1}>
+                            <ModalPostagem />
+                        </Box>
+                        <Link to="/postagens" className="text-decorator-none">
+                            <Button variant="outlined" className='botao'>Ver Postagens</Button>
+                        </Link>
+                    </Box>
+                </Grid>
+                <Grid item xs={6} >
+                    <img src="https://cdn.discordapp.com/attachments/966117479455809540/983335725934198794/jimihendrix-removebg-preview.png" alt="" width="620px" height="450px" />
+                </Grid>
+                <Grid xs={12} className='postagens'>
+                    <TabPostagem />
+                </Grid>
+            </Grid>
+        </>
+    );
 }
-
 
 export default Home;
