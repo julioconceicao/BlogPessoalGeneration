@@ -41,10 +41,10 @@ function Navbar() {
 
     if(token != ""){
         navbarComponent = <AppBar position="static">
-        <Toolbar variant="dense" style={{ backgroundColor: "#333333" }}> 
+        <Toolbar variant="dense" style={{ backgroundColor: "#303030" }}> 
             <Box className='cursor'>
                 <Typography variant="h5" color="inherit">
-                    Life Sound Community
+                    Blog Pessoal
                 </Typography>
             </Box>
 
